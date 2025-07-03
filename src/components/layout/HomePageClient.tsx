@@ -1,36 +1,32 @@
 "use client";
 
-import Link from "next/link";
 import { useState, useMemo } from 'react';
 import { Header } from './Header';
 import { Footer } from './Footer'; 
 import { ArticleCard } from '../article/ArticleCard';
-import { CategoryFilter } from './CategoryFilter';
 import { type Article } from "@/types/blog";
 
 export const HomePageClient = ({ articles }: { articles: Article[] }) => {
+  // The onSearch prop from the Header now handles the search query state.
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
+  // The filtering logic is now simplified to only use the search query.
   const filteredArticles = useMemo(() => {
-    return articles.filter(article => {
-      const matchesSearch = searchQuery === '' || 
-        article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        article.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        article.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
-      
-      const matchesCategory = selectedCategory === null || article.category === selectedCategory;
-      
-      return matchesSearch && matchesCategory;
-    });
-  }, [searchQuery, selectedCategory, articles]);
+    if (searchQuery === '') {
+      return articles;
+    }
+    return articles.filter(article => 
+      article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      article.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      article.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+    );
+  }, [searchQuery, articles]);
 
-  // Determine the featured article based on the filtered list
+  // Logic for featured and regular articles remains the same.
   const featuredArticle = useMemo(() => 
     articles.find(article => article.featured), 
   [articles]);
 
-  // Exclude the featured article from the regular list
   const regularArticles = filteredArticles.filter(article => !article.featured || article.id !== featuredArticle?.id);
 
   return (
@@ -45,12 +41,10 @@ export const HomePageClient = ({ articles }: { articles: Article[] }) => {
           </div>
         )}
 
-        <CategoryFilter 
-          selectedCategory={selectedCategory}
-          onCategorySelect={setSelectedCategory}
-        />
+        {/* The CategoryFilter component has been removed. */}
 
-        {featuredArticle && !searchQuery && !selectedCategory && (
+        {/* Show featured story only when not searching. */}
+        {featuredArticle && !searchQuery && (
           <section className="mb-16">
             <h2 className="text-3xl font-semibold text-foreground mb-8 tracking-tight font-space-grotesk">Featured Story</h2>
             <ArticleCard article={featuredArticle} featured={true} />
@@ -58,8 +52,9 @@ export const HomePageClient = ({ articles }: { articles: Article[] }) => {
         )}
 
         <section>
+          {/* Title is now always "Latest Articles" when not searching. */}
           <h2 className="text-3xl font-semibold text-foreground mb-8 tracking-tight font-space-grotesk">
-            {selectedCategory ? `${selectedCategory} Articles` : 'Latest Articles'}
+            {searchQuery ? 'Search Results' : 'Latest Articles'}
           </h2>
           
           {regularArticles.length === 0 ? (

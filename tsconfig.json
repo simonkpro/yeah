@@ -1,13 +1,4 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -15,37 +6,38 @@
         "./src/*"
       ]
     },
-    "noImplicitAny": false,
-    "noUnusedParameters": false,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "noUnusedLocals": false,
-    "strictNullChecks": false,
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
+    "allowJs": true,
+    "skipLibCheck": true,
     "strict": false,
+    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "incremental": true,
-    "module": "esnext",
     "esModuleInterop": true,
-    "moduleResolution": "node",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "incremental": true,
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "noImplicitAny": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "strictNullChecks": false
   },
   "include": [
     "next-env.d.ts",
-    ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

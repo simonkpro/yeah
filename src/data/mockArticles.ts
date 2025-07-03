@@ -59,6 +59,7 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
     publishedAt: '2024-06-23',
     category: 'Privacy',
     tags: ['encryption', 'messaging', 'privacy'],
+    imageUrl: 'https://www.zdnet.com/a/img/resize/ada36a8ca094a512f972578b7b4742f38ac90b5c/2024/05/28/95683789-ebda-4272-964e-ce5d1a5a000f/gettyimages-1888972727.jpg?auto=webp&width=1280',
     featured: false,
     readTime: 3
   },
@@ -73,6 +74,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
     publishedAt: '2024-06-22',
     category: 'Tech',
     tags: ['right to repair', 'lobbying', 'consumer rights'],
+    imageUrl: 'https://www.europarl.europa.eu/resources/library/images/20230607PHT95601/20230607PHT95601_original.jpg',
     featured: false,
     readTime: 4
   },
@@ -102,7 +104,7 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
     publishedAt: '2024-06-20',
     category: 'Security',
     tags: ['vulnerability', 'framework', 'patch'],
-    imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=400&fit=crop',
+    imageUrl: 'https://betanews.com/wp-content/uploads/2022/06/Software-supply-chain-640x384.jpg',
     featured: false,
     readTime: 5
   },
@@ -117,6 +119,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
     publishedAt: '2024-06-19',
     category: 'Privacy',
     tags: ['search', 'privacy', 'competition'],
+    imageUrl : 'https://diamondringsmusic.com/wp-content/uploads/2022/02/network-3139208_1280.jpg',
     featured: false,
     readTime: 4
   },
@@ -146,6 +149,7 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
     publishedAt: '2024-06-17',
     category: 'Investigation',
     tags: ['surveillance', 'tracking', 'corporate'],
+    imageUrl : 'https://www.zdnet.com/a/img/resize/ada36a8ca094a512f972578b7b4742f38ac90b5c/2024/05/28/95683789-ebda-4272-964e-ce5d1a5a000f/gettyimages-1888972727.jpg?auto=webp&width=1280',
     featured: false,
     readTime: 8
   },

@@ -22,6 +22,7 @@ export default {
 			fontFamily: {
 				'inter': ['Inter', 'sans-serif'],
 				'space-grotesk': ['Space Grotesk', 'sans-serif'],
+				logo: ['var(--font-logo)']
 			},
 			colors: {
 				border: 'hsl(var(--border))',

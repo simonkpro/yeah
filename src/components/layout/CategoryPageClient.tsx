@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useMemo } from 'react';
 import { Header } from './Header';
+import { Footer } from './Footer'; 
 import { ArticleCard } from '../article/ArticleCard';
 import { type Article } from "@/types/blog";
 
@@ -82,13 +83,7 @@ export const CategoryPageClient = ({
         </section>
       </main>
       {/* Your Footer can be a separate component or stay here */}
-      <footer className="border-t border-border/50 mt-24 backdrop-blur-sm">
-        <div className="container mx-auto px-6 py-12">
-          <div className="text-center text-muted-foreground/70 text-sm mt-8 pt-8 border-t border-border/30">
-            © 2024 TechReport. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

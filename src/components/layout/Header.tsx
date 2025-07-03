@@ -7,15 +7,18 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useState } from 'react';
 
+// 1. Re-introduce the props interface
 interface HeaderProps {
   onSearch: (query: string) => void;
 }
 
+// 2. Accept onSearch as a prop again
 export const Header = ({ onSearch }: HeaderProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  // 3. The search handler now calls the onSearch function from the parent page
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     onSearch(searchQuery);
@@ -23,19 +26,23 @@ export const Header = ({ onSearch }: HeaderProps) => {
 
   const isActive = (path: string) => pathname === path;
 
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="backdrop-blur-md bg-background/80 border-b border-border sticky top-0 z-50">
       <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
+        {/* The centering fix is kept */}
+        <div className="flex items-center justify-between relative">
+          
           <div className="flex items-center">
             <Link href="/">
-              <h1 className="text-xl font-semibold text-foreground tracking-tight">TechReport</h1>
+              <h1 className="text-xl font-semibold text-foreground tracking-tight font-logo">SONAR✳</h1>
             </Link>
           </div>
 
-          {/* Navigation - Desktop */}
-          <nav className="hidden md:flex">
+          <nav className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <div className="nav-pill flex items-center px-2 py-1 space-x-1">
               <Link href="/" className={`nav-pill-item ${isActive('/') ? 'active' : ''}`}>Home</Link>
               <Link href="/tech" className={`nav-pill-item ${isActive('/tech') ? 'active' : ''}`}>Tech</Link>
@@ -45,8 +52,8 @@ export const Header = ({ onSearch }: HeaderProps) => {
             </div>
           </nav>
 
-          {/* Search and Actions */}
           <div className="flex items-center space-x-4">
+            {/* The onSubmit now calls the updated handleSearch */}
             <form onSubmit={handleSearch} className="hidden sm:flex items-center">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
@@ -71,15 +78,14 @@ export const Header = ({ onSearch }: HeaderProps) => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden pt-6 pb-2 border-t border-border mt-4">
             <nav className="flex flex-col space-y-1 mb-6">
-              <Link href="/" className={`nav-pill-item text-left ${isActive('/') ? 'active' : ''}`}>Home</Link>
-              <Link href="/tech" className={`nav-pill-item text-left ${isActive('/tech') ? 'active' : ''}`}>Tech</Link>
-              <Link href="/privacy" className={`nav-pill-item text-left ${isActive('/privacy') ? 'active' : ''}`}>Privacy</Link>
-              <Link href="/security" className={`nav-pill-item text-left ${isActive('/security') ? 'active' : ''}`}>Security</Link>
-              <Link href="/ai" className={`nav-pill-item text-left ${isActive('/ai') ? 'active' : ''}`}>AI</Link>
+              <Link href="/" onClick={handleLinkClick} className={`nav-pill-item text-left ${isActive('/') ? 'active' : ''}`}>Home</Link>
+              <Link href="/tech" onClick={handleLinkClick} className={`nav-pill-item text-left ${isActive('/tech') ? 'active' : ''}`}>Tech</Link>
+              <Link href="/privacy" onClick={handleLinkClick} className={`nav-pill-item text-left ${isActive('/privacy') ? 'active' : ''}`}>Privacy</Link>
+              <Link href="/security" onClick={handleLinkClick} className={`nav-pill-item text-left ${isActive('/security') ? 'active' : ''}`}>Security</Link>
+              <Link href="/ai" onClick={handleLinkClick} className={`nav-pill-item text-left ${isActive('/ai') ? 'active' : ''}`}>AI</Link>
             </nav>
             <div className="space-y-4">
               <form onSubmit={handleSearch}>
@@ -94,9 +100,6 @@ export const Header = ({ onSearch }: HeaderProps) => {
                   />
                 </div>
               </form>
-              <Button variant="outline" className="w-full cosmic-glass">
-                Subscribe
-              </Button>
             </div>
           </div>
         )}
