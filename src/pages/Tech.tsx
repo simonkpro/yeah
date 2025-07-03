@@ -1,0 +1,95 @@
+'use client';
+
+import Link from "next/link";
+import { Header } from '../components/layout/Header';
+import { ArticleCard } from '../components/article/ArticleCard';
+import { articles } from '../data/mockArticles';
+import { useState, useMemo } from 'react';
+
+const Tech = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const techArticles = useMemo(() => {
+    return articles.filter(article => {
+      const isTechArticle = article.category === 'Tech';
+      const matchesSearch = searchQuery === '' || 
+        article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        article.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        article.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+      
+      return isTechArticle && matchesSearch;
+    });
+  }, [searchQuery]);
+
+  return (
+    <div className="min-h-screen">
+      <Header onSearch={setSearchQuery} />
+      <main className="container mx-auto px-6 py-12">
+        {/* Breadcrumb */}
+        <div className="mb-8">
+          <nav className="text-sm text-muted-foreground">
+            <Link href="/" className="transition-colors">Home</Link> / <span className="text-foreground">Tech</span>
+          </nav>
+        </div>
+
+        {/* Page Header */}
+        <div className="mb-12">
+          <h1 className="text-4xl font-bold text-foreground mb-4 font-space-grotesk">Tech News</h1>
+          <p className="text-lg text-muted-foreground max-w-2xl">
+            Stay updated with the latest technology news, innovations, and industry developments.
+          </p>
+        </div>
+
+        {/* Search Results Info */}
+        {searchQuery && (
+          <div className="mb-8">
+            <p className="text-muted-foreground text-sm">
+              {techArticles.length} result{techArticles.length !== 1 ? 's' : ''} for "{searchQuery}" in Tech
+            </p>
+          </div>
+        )}
+
+        {/* Articles Grid */}
+        <section>
+          {techArticles.length === 0 ? (
+            <div className="text-center py-16">
+              <p className="text-muted-foreground text-lg mb-2">No tech articles found.</p>
+              {searchQuery && (
+                <p className="text-muted-foreground/70 text-sm">
+                  Try adjusting your search terms.
+                </p>
+              )}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {techArticles.map((article) => (
+                <ArticleCard key={article.id} article={article} />
+              ))}
+            </div>
+          )}
+        </section>
+      </main>
+      {/* Footer */}
+      <footer className="border-t border-border/50 mt-24 backdrop-blur-sm">
+        <div className="container mx-auto px-6 py-12">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="text-foreground font-semibold text-lg mb-6 md:mb-0 tracking-tight">
+              TechReport
+            </div>
+            <div className="flex space-x-8 text-muted-foreground text-sm">
+              <Link href="/about" className="transition-colors">About</Link>
+              <Link href="/contact" className="transition-colors">Contact</Link>
+              <a href="#" className="transition-colors">Privacy</a>
+              <a href="#" className="transition-colors">Terms</a>
+            </div>
+          </div>
+          <div className="text-center text-muted-foreground/70 text-sm mt-8 pt-8 border-t border-border/30">
+            © 2024 TechReport. All rights reserved.
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default Tech;

@@ -1,0 +1,112 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 8%; /* Dark charcoal */
+    --foreground: 0 0% 95%; /* Light grey/white */
+
+    --card: 0 0% 12%; /* Slightly lighter charcoal */
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 0% 85%; /* Light grey */
+    --primary-foreground: 0 0% 15%; /* Dark charcoal */
+
+    --secondary: 0 0% 18%; /* Medium charcoal */
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 22%; /* Lighter charcoal */
+    --muted-foreground: 0 0% 70%; /* Medium grey */
+
+    --accent: 0 0% 85%; /* Light grey accent */
+    --accent-foreground: 0 0% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 22%; /* Medium charcoal border */
+    --input: 0 0% 22%;
+    --ring: 0 0% 85%; /* Light grey ring */
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 0 0% 85%;
+    --sidebar-primary-foreground: 0 0% 15%;
+    --sidebar-accent: 0 0% 18%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 22%;
+    --sidebar-ring: 0 0% 85%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground antialiased bg-background;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.025em;
+  }
+
+  h2 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .cosmic-gradient {
+    background: linear-gradient(135deg, rgba(64, 64, 64, 0.2) 0%, rgba(32, 32, 32, 0.4) 100%);
+  }
+
+  .cosmic-glow {
+    position: relative;
+  }
+
+  .cosmic-glow::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    z-index: -1;
+    border-radius: inherit;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .cosmic-glass {
+    @apply backdrop-blur-sm bg-card border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.1)];
+  }
+  
+  .cosmic-card {
+    @apply bg-card border border-border backdrop-blur-sm;
+  }
+  
+  .nav-pill {
+    @apply backdrop-blur-md bg-card border border-border rounded-full;
+  }
+  
+  .nav-pill-item {
+    @apply px-4 py-2 text-sm rounded-full transition-colors;
+  }
+  
+  .nav-pill-item.active {
+    @apply bg-accent text-accent-foreground;
+  }
+}
