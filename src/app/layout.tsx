@@ -1,27 +1,29 @@
 import './globals.css'
 import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { Providers } from "@/components/providers"; // <-- 1. Import the new Providers component
+import { Inter } from 'next/font/google'; // Recommended for base font
 
-  export const metadata = {
-    title: 'vite_react_shadcn_ts',
-    description: 'Next.js App',
-  }
-  
-  export default function RootLayout({
-    children,
-  }: {
-    children: React.ReactNode
-  }) {
-    return (
-      <html lang="en">
-        <body>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            {children}
-          </TooltipProvider>
-        </body>
-      </html>
-    )
-  }
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata = {
+  title: 'TechReport', // Updated title
+  description: 'Your source for tech news, privacy, and security.',
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        <Providers>
+          {children}
+        </Providers>
+
+        <Toaster />
+      </body>
+    </html>
+  )
+}
