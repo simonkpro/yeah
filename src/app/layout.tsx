@@ -17,7 +17,7 @@ const logoFont = localFont({
 });
 
 export const metadata = {
-  title: 'TechReport',
+  title: 'SONAR',
   description: 'Your source for tech news, privacy, and security.',
 }
 

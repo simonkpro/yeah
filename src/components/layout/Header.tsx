@@ -7,9 +7,9 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useState } from 'react';
 
-// 1. Re-introduce the props interface
+// 1. Make onSearch optional
 interface HeaderProps {
-  onSearch: (query: string) => void;
+  onSearch?: (query: string) => void;
 }
 
 // 2. Accept onSearch as a prop again
@@ -21,7 +21,9 @@ export const Header = ({ onSearch }: HeaderProps) => {
   // 3. The search handler now calls the onSearch function from the parent page
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    onSearch(searchQuery);
+    if (onSearch) {
+      onSearch(searchQuery);
+    }
   };
 
   const isActive = (path: string) => pathname === path;
@@ -38,7 +40,7 @@ export const Header = ({ onSearch }: HeaderProps) => {
           
           <div className="flex items-center">
             <Link href="/">
-              <h1 className="text-xl font-semibold text-foreground tracking-tight font-logo">SONAR✳</h1>
+              <h1 className="text-xl text-foreground tracking-tight font-logo">SONAR✳</h1>
             </Link>
           </div>
 
@@ -62,7 +64,7 @@ export const Header = ({ onSearch }: HeaderProps) => {
                   placeholder="Search articles..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 w-64 cosmic-glass text-sm"
+                  className="pl-10 w-64 text-sm"
                 />
               </div>
             </form>

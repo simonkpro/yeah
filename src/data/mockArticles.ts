@@ -12,6 +12,7 @@ export const categories: Category[] = [
 export const articles: Article[] = [
   {
     id: '1',
+    slug: 'major-data-breach-exposes-millions-of-user-records',
     title: 'Major Data Breach Exposes Millions of User Records',
     excerpt: 'A sophisticated cyber attack on a leading tech company has compromised personal data of over 10 million users, raising serious questions about data security practices.',
     content: `A major cybersecurity incident has shaken the tech industry this week as hackers successfully breached the systems of TechCorp, one of the leading cloud service providers, exposing sensitive personal information of more than 10 million users.
@@ -27,12 +28,13 @@ This incident highlights the ongoing challenges that even well-resourced compani
     publishedAt: '2024-06-25',
     category: 'Security',
     tags: ['cybersecurity', 'data breach', 'privacy'],
-    imageUrl: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=400&fit=crop',
+    imageUrl: 'https://www.fidelity.com/bin-public/600_Fidelity_Com_English/images/learning-center/heros/crypto-outlook_600977965_banner.png',
     featured: true,
     readTime: 5
   },
   {
     id: '2',
+    slug: 'ai-regulatory-scrutiny',
     title: 'AI Companies Face New Regulatory Scrutiny',
     excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -50,6 +52,7 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
   },
   {
     id: '3',
+    slug: 'encryption',
     title: 'Encrypted Messaging App Gains Traction',
     excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
@@ -65,6 +68,7 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
   },
   {
     id: '4',
+    slug: 'tech-giants',
     title: 'Tech Giants Lobby Against Right to Repair',
     excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -80,6 +84,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
   },
   {
     id: '5',
+    slug: 'ml-bias',
     title: 'Machine Learning Bias in Hiring Systems',
     excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.',
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
@@ -95,6 +100,7 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
   },
   {
     id: '6',
+    slug: "zero-day",
     title: 'Zero-Day Vulnerability Discovered in Popular Framework',
     excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consectetur, nulla at vehicula tincidunt, augue libero.',
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
@@ -110,6 +116,7 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
   },
   {
     id: '7',
+    slug: 'privacy-first',
     title: 'Privacy-First Search Engine Gains Market Share',
     excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus.',
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -125,6 +132,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
   },
   {
     id: '8',
+    slug: 'quantum-comp',
     title: 'Quantum Computing Breakthrough Announced',
     excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante. Mauris eleifend, quam a vulputate dictum.',
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -140,6 +148,7 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
   },
   {
     id: '9',
+    slug: 'corporate',
     title: 'Corporate Surveillance Investigation Reveals Widespread Tracking',
     excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta.',
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
@@ -155,6 +164,7 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
   },
   {
     id: '10',
+    slug: 'ai-ethics',
     title: 'New AI Ethics Guidelines Released by Tech Consortium',
     excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor blandit quam, et molestie dolor.',
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
