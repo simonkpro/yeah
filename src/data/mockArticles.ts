@@ -2,7 +2,7 @@
 import { Article, Category } from '../types/blog';
 
 export const categories: Category[] = [
-  { id: '1', name: 'Tech', slug: 'tech', color: 'bg-green-500' },
+  { id: '1', name: 'Crypto', slug: 'Crypto', color: 'bg-green-500' },
   { id: '2', name: 'Privacy', slug: 'privacy', color: 'bg-blue-500' },
   { id: '3', name: 'Security', slug: 'security', color: 'bg-red-500' },
   { id: '4', name: 'AI', slug: 'ai', color: 'bg-purple-500' },
@@ -26,7 +26,7 @@ The compromised data includes names, email addresses, phone numbers, and encrypt
 This incident highlights the ongoing challenges that even well-resourced companies face in protecting user data against increasingly sophisticated cyber threats. The company has notified all affected users and is offering free credit monitoring services.`,
     author: { name: 'Sarah Johnson' },
     publishedAt: '2024-06-25',
-    category: 'Security',
+    category: 'Crypto',
     tags: ['cybersecurity', 'data breach', 'privacy'],
     imageUrl: 'https://www.fidelity.com/bin-public/600_Fidelity_Com_English/images/learning-center/heros/crypto-outlook_600977965_banner.png',
     featured: true,

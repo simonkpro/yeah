@@ -1,8 +1,8 @@
 {
-  "/security/page": "app/security/page.js",
+  "/page": "app/page.js",
+  "/contact/page": "app/contact/page.js",
   "/privacy/page": "app/privacy/page.js",
   "/ai/page": "app/ai/page.js",
-  "/article/[slug]/page": "app/article/[slug]/page.js",
-  "/page": "app/page.js",
-  "/tech/page": "app/tech/page.js"
+  "/terms-privacy/page": "app/terms-privacy/page.js",
+  "/about/page": "app/about/page.js"
 }

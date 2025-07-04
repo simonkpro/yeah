@@ -47,7 +47,7 @@ export const Header = ({ onSearch }: HeaderProps) => {
           <nav className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <div className="nav-pill flex items-center px-2 py-1 space-x-1">
               <Link href="/" className={`nav-pill-item ${isActive('/') ? 'active' : ''}`}>Home</Link>
-              <Link href="/tech" className={`nav-pill-item ${isActive('/tech') ? 'active' : ''}`}>Tech</Link>
+              <Link href="/tech" className={`nav-pill-item ${isActive('/tech') ? 'active' : ''}`}>Crypto</Link>
               <Link href="/privacy" className={`nav-pill-item ${isActive('/privacy') ? 'active' : ''}`}>Privacy</Link>
               <Link href="/security" className={`nav-pill-item ${isActive('/security') ? 'active' : ''}`}>Security</Link>
               <Link href="/ai" className={`nav-pill-item ${isActive('/ai') ? 'active' : ''}`}>AI</Link>
@@ -84,7 +84,7 @@ export const Header = ({ onSearch }: HeaderProps) => {
           <div className="md:hidden pt-6 pb-2 border-t border-border mt-4">
             <nav className="flex flex-col space-y-1 mb-6">
               <Link href="/" onClick={handleLinkClick} className={`nav-pill-item text-left ${isActive('/') ? 'active' : ''}`}>Home</Link>
-              <Link href="/tech" onClick={handleLinkClick} className={`nav-pill-item text-left ${isActive('/tech') ? 'active' : ''}`}>Tech</Link>
+              <Link href="/tech" onClick={handleLinkClick} className={`nav-pill-item text-left ${isActive('/tech') ? 'active' : ''}`}>Crypto</Link>
               <Link href="/privacy" onClick={handleLinkClick} className={`nav-pill-item text-left ${isActive('/privacy') ? 'active' : ''}`}>Privacy</Link>
               <Link href="/security" onClick={handleLinkClick} className={`nav-pill-item text-left ${isActive('/security') ? 'active' : ''}`}>Security</Link>
               <Link href="/ai" onClick={handleLinkClick} className={`nav-pill-item text-left ${isActive('/ai') ? 'active' : ''}`}>AI</Link>
