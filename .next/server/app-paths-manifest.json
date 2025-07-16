@@ -1,8 +1,7 @@
 {
   "/page": "app/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/privacy/page": "app/privacy/page.js",
-  "/ai/page": "app/ai/page.js",
-  "/terms-privacy/page": "app/terms-privacy/page.js",
-  "/about/page": "app/about/page.js"
+  "/security/page": "app/security/page.js",
+  "/about/page": "app/about/page.js",
+  "/article/[slug]/page": "app/article/[slug]/page.js",
+  "/contact/page": "app/contact/page.js"
 }

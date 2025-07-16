@@ -1,14 +1,71 @@
+// src/data/mockArticles.ts
+import { Article, Author, Category } from '../types/blog';
 
-import { Article, Category } from '../types/blog';
-
-export const categories: Category[] = [
-  { id: '1', name: 'Crypto', slug: 'Crypto', color: 'bg-green-500' },
-  { id: '2', name: 'Privacy', slug: 'privacy', color: 'bg-blue-500' },
-  { id: '3', name: 'Security', slug: 'security', color: 'bg-red-500' },
-  { id: '4', name: 'AI', slug: 'ai', color: 'bg-purple-500' },
-  { id: '5', name: 'Investigation', slug: 'investigation', color: 'bg-yellow-500' },
+// 1. A separate array for authors has been created.
+export const authors: Author[] = [
+  {
+    name: 'Sarah Johnson',
+    slug: 'sarah-johnson',
+    bio: 'Sarah Johnson is a veteran cybersecurity reporter with a knack for breaking down complex data breaches for the public.',
+    avatar: '/images/avatars/sarah-johnson.png',
+  },
+  {
+    name: 'Michael Chen',
+    slug: 'michael-chen',
+    bio: 'Michael Chen focuses on the intersection of AI, policy, and regulation, tracking the ever-changing legal landscape of technology.',
+    avatar: '/images/avatars/michael-chen.png',
+  },
+  {
+    name: 'Emma Rodriguez',
+    slug: 'emma-rodriguez',
+    bio: 'Emma Rodriguez is a privacy advocate and software engineer who champions the development and adoption of encrypted technologies.',
+    avatar: '/images/avatars/emma-rodriguez.png',
+  },
+  {
+    name: 'David Kim',
+    slug: 'david-kim',
+    bio: 'David Kim is a consumer rights journalist who investigates the practices of large tech corporations and their impact on users.',
+    avatar: '/images/avatars/david-kim.png',
+  },
+  {
+    name: 'Rachel Kim',
+    slug: 'rachel-kim',
+    bio: 'As a data scientist and ethics researcher, Rachel Kim explores the real-world consequences of algorithmic bias in hiring and beyond.',
+    avatar: '/images/avatars/rachel-kim.png',
+  },
+  {
+    name: 'Alex Morgan',
+    slug: 'alex-morgan',
+    bio: 'Alex Morgan is a security analyst renowned for discovering and reporting zero-day vulnerabilities in major software frameworks.',
+    avatar: '/images/avatars/alex-morgan.png',
+  },
+  {
+    name: 'Jordan Lee',
+    slug: 'jordan-lee',
+    bio: 'Jordan Lee is a market analyst who tracks the growth of privacy-focused startups and their challenge to established tech giants.',
+    avatar: '/images/avatars/jordan-lee.png',
+  },
+  {
+    name: 'Dr. Lisa Chen',
+    slug: 'dr-lisa-chen',
+    bio: 'Dr. Lisa Chen is a quantum physicist and science communicator dedicated to making cutting-edge scientific breakthroughs accessible to all.',
+    avatar: '/images/avatars/dr-lisa-chen.png',
+  },
+  {
+    name: 'Maria Santos',
+    slug: 'maria-santos',
+    bio: 'Maria Santos is an investigative journalist specializing in corporate surveillance and the widespread tracking of consumer data.',
+    avatar: '/images/avatars/maria-santos.png',
+  },
+  {
+    name: 'Thomas Anderson',
+    slug: 'thomas-anderson',
+    bio: 'Thomas Anderson is a technology ethicist who works with industry consortiums to develop and promote responsible AI guidelines.',
+    avatar: '/images/avatars/thomas-anderson.png',
+  },
 ];
 
+// 2. Articles now reference authors by 'authorSlug'.
 export const articles: Article[] = [
   {
     id: '1',
@@ -24,11 +81,11 @@ The breach, discovered on Monday morning by the company's security team, appears
 The compromised data includes names, email addresses, phone numbers, and encrypted passwords. While financial information was not accessed, security experts warn that the exposed data could be used for targeted phishing attacks and identity theft.
 
 This incident highlights the ongoing challenges that even well-resourced companies face in protecting user data against increasingly sophisticated cyber threats. The company has notified all affected users and is offering free credit monitoring services.`,
-    author: { name: 'Sarah Johnson' },
+    authorSlug: 'sarah-johnson', // Changed from object to slug
     publishedAt: '2024-06-25',
-    category: 'Crypto',
+    category: 'security', // Matched to category slug
     tags: ['cybersecurity', 'data breach', 'privacy'],
-    imageUrl: 'https://www.fidelity.com/bin-public/600_Fidelity_Com_English/images/learning-center/heros/crypto-outlook_600977965_banner.png',
+    imageUrl: 'https://s.yimg.com/ny/api/res/1.2/MRnq1w0JA2IwyJuRR1kWfA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTM2MA--/https://media.zenfs.com/en/aol_gobankingrates_57/2904393e9dd483d5f5183f7d018f643f',
     featured: true,
     readTime: 5
   },
@@ -42,9 +99,9 @@ This incident highlights the ongoing challenges that even well-resourced compani
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.`,
-    author: { name: 'Michael Chen' },
+    authorSlug: 'michael-chen', // Changed from object to slug
     publishedAt: '2024-06-24',
-    category: 'AI',
+    category: 'ai', // Matched to category slug
     tags: ['regulation', 'policy', 'machine learning'],
     imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop',
     featured: false,
@@ -58,9 +115,9 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 
 Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.`,
-    author: { name: 'Emma Rodriguez' },
+    authorSlug: 'emma-rodriguez', // Changed from object to slug
     publishedAt: '2024-06-23',
-    category: 'Privacy',
+    category: 'privacy', // Matched to category slug
     tags: ['encryption', 'messaging', 'privacy'],
     imageUrl: 'https://www.zdnet.com/a/img/resize/ada36a8ca094a512f972578b7b4742f38ac90b5c/2024/05/28/95683789-ebda-4272-964e-ce5d1a5a000f/gettyimages-1888972727.jpg?auto=webp&width=1280',
     featured: false,
@@ -74,9 +131,9 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.`,
-    author: { name: 'David Kim' },
+    authorSlug: 'david-kim', // Changed from object to slug
     publishedAt: '2024-06-22',
-    category: 'Tech',
+    category: 'security', // Matched to available category slug
     tags: ['right to repair', 'lobbying', 'consumer rights'],
     imageUrl: 'https://www.europarl.europa.eu/resources/library/images/20230607PHT95601/20230607PHT95601_original.jpg',
     featured: false,
@@ -90,9 +147,9 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.`,
-    author: { name: 'Rachel Kim' },
+    authorSlug: 'rachel-kim', // Changed from object to slug
     publishedAt: '2024-06-21',
-    category: 'AI',
+    category: 'ai', // Matched to category slug
     tags: ['bias', 'hiring', 'ethics'],
     imageUrl: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop',
     featured: false,
@@ -106,9 +163,9 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
 
 Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.`,
-    author: { name: 'Alex Morgan' },
+    authorSlug: 'alex-morgan', // Changed from object to slug
     publishedAt: '2024-06-20',
-    category: 'Security',
+    category: 'security', // Matched to category slug
     tags: ['vulnerability', 'framework', 'patch'],
     imageUrl: 'https://betanews.com/wp-content/uploads/2022/06/Software-supply-chain-640x384.jpg',
     featured: false,
@@ -122,9 +179,9 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.`,
-    author: { name: 'Jordan Lee' },
+    authorSlug: 'jordan-lee', // Changed from object to slug
     publishedAt: '2024-06-19',
-    category: 'Privacy',
+    category: 'privacy', // Matched to category slug
     tags: ['search', 'privacy', 'competition'],
     imageUrl : 'https://diamondringsmusic.com/wp-content/uploads/2022/02/network-3139208_1280.jpg',
     featured: false,
@@ -138,9 +195,9 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.`,
-    author: { name: 'Dr. Lisa Chen' },
+    authorSlug: 'dr-lisa-chen', // Changed from object to slug
     publishedAt: '2024-06-18',
-    category: 'Tech',
+    category: 'security', // Matched to available category slug
     tags: ['quantum', 'computing', 'breakthrough'],
     imageUrl: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
     featured: false,
@@ -154,9 +211,9 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 
 Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.`,
-    author: { name: 'Maria Santos' },
+    authorSlug: 'maria-santos', // Changed from object to slug
     publishedAt: '2024-06-17',
-    category: 'Investigation',
+    category: 'investigation', // Matched to category slug
     tags: ['surveillance', 'tracking', 'corporate'],
     imageUrl : 'https://www.zdnet.com/a/img/resize/ada36a8ca094a512f972578b7b4742f38ac90b5c/2024/05/28/95683789-ebda-4272-964e-ce5d1a5a000f/gettyimages-1888972727.jpg?auto=webp&width=1280',
     featured: false,
@@ -170,9 +227,9 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
-    author: { name: 'Thomas Anderson' },
+    authorSlug: 'thomas-anderson', // Changed from object to slug
     publishedAt: '2024-06-16',
-    category: 'AI',
+    category: 'ai', // Matched to category slug
     tags: ['ethics', 'guidelines', 'consortium'],
     imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop',
     featured: false,

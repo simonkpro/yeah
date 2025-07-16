@@ -1,11 +1,11 @@
-import { articles } from '@/data/mockArticles';
+import { articles, authors } from '@/data/mockArticles'; // 1. Import authors as well
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { User, Clock } from 'lucide-react';
-import { InlineRelatedArticles } from '@/components/article/InlineRelatedArticles'; // 1. Import the new component
+import { InlineRelatedArticles } from '@/components/article/InlineRelatedArticles';
 
 // getArticleData and getRelatedArticles functions remain the same
 const getArticleData = (slug: string) => {
@@ -41,6 +41,8 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
     notFound();
   }
 
+  // 2. Find the full author object using the authorSlug
+  const author = authors.find(a => a.slug === article.authorSlug);
   const relatedArticles = getRelatedArticles(article);
 
   return (
@@ -62,7 +64,14 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
             <div className="flex items-center space-x-6 text-sm text-muted-foreground">
               <div className="flex items-center space-x-2">
                 <User className="h-4 w-4" />
-                <span className="font-medium">{article.author.name}</span>
+                {/* 3. Link to the author page and display their name */}
+                {author ? (
+                  <Link href={`/author/${author.slug}`} className="font-medium hover:text-primary transition-colors">
+                    {author.name}
+                  </Link>
+                ) : (
+                  <span className="font-medium">Unknown Author</span>
+                )}
               </div>
               <div className="flex items-center space-x-2">
                 <Clock className="h-4 w-4" />
@@ -86,7 +95,6 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
               This is the first part of the article's content. You can write several paragraphs here to set the scene and introduce the main points of your post. This section should engage the reader and make them want to continue.
             </p>
 
-            {/* 2. Insert the inline component */}
             <InlineRelatedArticles articles={relatedArticles} />
             
             <p>
@@ -103,8 +111,6 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
             </div>
           )}
         </article>
-
-        {/* The old, full-width "Keep Reading" section has been removed */}
       </main>
       <Footer />
     </div>

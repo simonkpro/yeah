@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { type Article } from '../../types/blog';
+import { authors } from '@/data/mockArticles'; // Import the authors array
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Clock, User } from 'lucide-react';
@@ -15,8 +16,10 @@ interface ArticleCardProps {
 export const ArticleCard = ({ article, featured = false }: ArticleCardProps) => {
   const router = useRouter();
 
+  // Find the author object from the main list using the slug
+  const author = authors.find(a => a.slug === article.authorSlug);
+
   const handleCategoryClick = (e: React.MouseEvent) => {
-    // This is the fix: It prevents the browser's default link navigation
     e.preventDefault();
     e.stopPropagation();
     router.push(`/${article.category.toLowerCase()}`);
@@ -31,12 +34,12 @@ export const ArticleCard = ({ article, featured = false }: ArticleCardProps) => 
             <img
               src={article.imageUrl}
               alt={article.title}
-              className="w-full object-cover transition-transform duration-300 group-hover:scale-105 h-96"
+              className="w-full object-cover transition-transform duration-300 group-hover:scale-105 h-96 filter invert hue-rotate-[-20deg] saturate-150"
             />
             <img
               src="/texture.png"
               alt="Texture overlay"
-              className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-25"
+              className="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-45"
             />
             <div className="absolute top-4 left-4 z-10">
               <div onClick={handleCategoryClick} className="cursor-pointer">
@@ -62,7 +65,8 @@ export const ArticleCard = ({ article, featured = false }: ArticleCardProps) => 
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
                   <User className="h-4 w-4" />
-                  <span className="font-medium">{article.author.name}</span>
+                  {/* Use the found author's name */}
+                  <span className="font-medium">{author?.name || 'Unknown Author'}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Clock className="h-4 w-4" />
@@ -113,7 +117,8 @@ export const ArticleCard = ({ article, featured = false }: ArticleCardProps) => 
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2">
                 <User className="h-4 w-4" />
-                <span className="font-medium">{article.author.name}</span>
+                {/* Use the found author's name */}
+                <span className="font-medium">{author?.name || 'Unknown Author'}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Clock className="h-4 w-4" />
